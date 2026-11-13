@@ -389,8 +389,15 @@ def show_diagnosis(result):
         "not a legal conclusion."
     )
 
+    # Main diagnosis: larger, bold and teal.
     st.markdown(
-        f'<p class="diagnosis">{esc(d["label"])}</p>',
+        f'<p class="diagnosis" style="'
+        f'font-size:26px; '
+        f'font-weight:750; '
+        f'color:#42B8A8; '
+        f'margin-top:8px; '
+        f'margin-bottom:10px;">'
+        f'{esc(d["label"])}</p>',
         unsafe_allow_html=True,
     )
 
@@ -427,14 +434,24 @@ def show_diagnosis(result):
     facts = because_text(primary["because"], result)
 
     if facts:
-        st.markdown("**Why this assessment?**")
+        st.markdown(
+            '<p style="font-size:20px; font-weight:700; '
+            'color:#FFFFFF; margin-top:22px; margin-bottom:12px;">'
+            'Why this assessment?</p>',
+            unsafe_allow_html=True,
+        )
 
         for text in facts:
             st.markdown(f"- {text}")
 
     if match:
 
-        st.markdown("**Assessment Criteria**")
+        st.markdown(
+            '<p style="font-size:20px; font-weight:700; '
+            'color:#FFFFFF; margin-top:22px; margin-bottom:12px;">'
+            'Assessment Criteria</p>',
+            unsafe_allow_html=True,
+        )
 
         for text in match["met"]:
             st.markdown(f"- Confirmed: {text}")
@@ -468,7 +485,12 @@ def show_diagnosis(result):
 
     if extra or other:
 
-        st.markdown("**Related warning signs**")
+        st.markdown(
+            '<p style="font-size:20px; font-weight:700; '
+            'color:#FFFFFF; margin-top:22px; margin-bottom:12px;">'
+            'Related warning signs</p>',
+            unsafe_allow_html=True,
+        )
 
         for entry in extra:
 
@@ -488,7 +510,6 @@ def show_diagnosis(result):
                 f"- **Possible additional classification: {name}.** "
                 f"{entry['reason']}"
             )
-
 
 # --------------------------------------------------------------------------
 # Decision making: action plan and urgency
@@ -602,7 +623,13 @@ def show_actions(result):
         if not items:
             continue
 
-        st.markdown(f"**{phase}**")
+        # Larger teal headings for action phases.
+        st.markdown(
+            f'<p style="font-size:22px; font-weight:750; '
+            f'color:#42B8A8; margin-top:20px; margin-bottom:12px;">'
+            f'{esc(phase)}</p>',
+            unsafe_allow_html=True,
+        )
 
         for item in items:
 
@@ -614,8 +641,12 @@ def show_actions(result):
                 else ""
             )
 
+            # Slightly larger action descriptions.
             st.markdown(
-                f"{number}. {item['action']}{role}"
+                f'<p style="font-size:17px; line-height:1.6;">'
+                f'{number}. {esc(item["action"])}'
+                f'{esc(role)}</p>',
+                unsafe_allow_html=True,
             )
 
         st.write("")
@@ -636,7 +667,6 @@ def show_actions(result):
 
             for text in because_text(item["because"], result):
                 st.markdown(f"- {text}")
-
 
 # --------------------------------------------------------------------------
 # Copy-ready incident summary
