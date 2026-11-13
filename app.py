@@ -519,7 +519,7 @@ def show_actions(result):
     st.markdown(
         f'<div class="urgency" style="--edge:{edge};--tint:{tint}">'
         f'<div class="level">{esc(dec["urgency"])} urgency</div>'
-        f'<div class="step">{esc(why)}</div>'
+        f'<div class="step" style="color:#7F1D1D;">{esc(why)}</div>'
         f'</div>',
         unsafe_allow_html=True,
     )
