@@ -436,7 +436,7 @@ def show_diagnosis(result):
     if facts:
         st.markdown(
             '<p style="font-size:20px; font-weight:700; '
-            'color:#FFFFFF; margin-top:22px; margin-bottom:12px;">'
+            'color:inherit; margin-top:22px; margin-bottom:12px;">'
             'Why this assessment?</p>',
             unsafe_allow_html=True,
         )
@@ -448,7 +448,7 @@ def show_diagnosis(result):
 
         st.markdown(
             '<p style="font-size:20px; font-weight:700; '
-            'color:#FFFFFF; margin-top:22px; margin-bottom:12px;">'
+            'color:inherit; margin-top:22px; margin-bottom:12px;">'
             'Assessment Criteria</p>',
             unsafe_allow_html=True,
         )
@@ -487,7 +487,7 @@ def show_diagnosis(result):
 
         st.markdown(
             '<p style="font-size:20px; font-weight:700; '
-            'color:#FFFFFF; margin-top:22px; margin-bottom:12px;">'
+            'color:inherit; margin-top:22px; margin-bottom:12px;">'
             'Related warning signs</p>',
             unsafe_allow_html=True,
         )
