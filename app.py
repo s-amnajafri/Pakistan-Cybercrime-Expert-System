@@ -434,7 +434,7 @@ def show_diagnosis(result):
 
     if match:
 
-        st.markdown("*Assessment Criteria**")
+        st.markdown("**Assessment Criteria**")
 
         for text in match["met"]:
             st.markdown(f"- Confirmed: {text}")
