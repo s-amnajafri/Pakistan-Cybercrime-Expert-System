@@ -919,7 +919,7 @@ def show_trace(result):
                 if entry["stage_name"] == stage
             ]
 
-            st.dataframe(
+            st.table(
                 rows,
                 hide_index=True,
                 width="stretch",
